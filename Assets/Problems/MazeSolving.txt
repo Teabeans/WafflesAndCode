@@ -1,0 +1,11 @@
+Given a map stored as a 2-dimensional array with a start, end, and obstructions, provide a strategy to determine both the shortest distance to the end and such a route.
+
+Strategy:
+Starting from either terminus, consecutively flag all reachable squares in expanding "rings" of adjacency.
+
+For instance, all cells adjacent to the origin may be flagged with a distance of "1".
+After that, all cells adjacent to "1" may be flagged as "2".
+When the next terminus is reached, the distance will be known.
+
+A path between the two may be found by starting at the end, then consecutively moving to a cell with a lower value.
+It does not matter which lower cell is chosen; one will eventually arrive back at the source.
