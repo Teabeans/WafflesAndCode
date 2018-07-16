@@ -10,7 +10,7 @@ Members of Waffles and Code are expected to:
   |--Clean their dishes and workspace after each session.
   |  |--See "Leave No Trace" camping policies:
   |  |  |--https://en.wikipedia.org/wiki/Leave_No_Trace
-  |  |--But ignore 5 and 6 regarding campfires and wildlife.
+  |  |--But ignore #5 and #6 regarding campfires and wildlife.
   |  |--Also ignore #3 regarding human waste disposal. Do NOT dig any pits.
   |
   |--Read and agree to the 10 Commandments of Computer Ethics
