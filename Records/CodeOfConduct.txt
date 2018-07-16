@@ -8,7 +8,7 @@ Members of Waffles and Code are expected to:
   |  |--And generally aggressive behavior
   |
   |--Clean their dishes and workspace after each session.
-  |  |--See "Leave No Trace" camping policies
+  |  |--See "Leave No Trace" camping policies:
   |  |  |--https://en.wikipedia.org/wiki/Leave_No_Trace
   |  |--But ignore 5 and 6 regarding campfires and wildlife.
   |  |--Also ignore #3 regarding human waste disposal. Do NOT dig any pits.
@@ -26,3 +26,14 @@ Members of Waffles and Code are expected to:
      |--Thou shalt not appropriate other people's intellectual output.
      |--Thou shalt think about the social consequences of the program you are writing or the system you are designing.
      |--Thou shalt always use a computer in ways that ensure consideration and respect for your fellow humans.
+
+Additionally, officers shall:
+  |
+  |--Ensure that a steady supply of waffles (and coffee, if available) are on hand prior to the meeting start time.
+  |
+  |--Ensure that disrespectful or confrontational behavior is addressed.
+  |
+  |--Clean communal assets including:
+     |--Whiteboards
+     |--Temporary files and drives
+     |--Cookware and cooking areas
