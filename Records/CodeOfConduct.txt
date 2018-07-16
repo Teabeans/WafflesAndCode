@@ -1,0 +1,28 @@
+Code of Conduct (2018.07.15):
+
+Members of Waffles and Code are expected to:
+  |
+  |--Treat all members with respect. We maintain a zero tolerance policy regarding:
+  |  |--Harassment
+  |  |--Abuse
+  |  |--And generally aggressive behavior
+  |
+  |--Clean their dishes and workspace after each session.
+  |  |--See "Leave No Trace" camping policies
+  |  |  |--https://en.wikipedia.org/wiki/Leave_No_Trace
+  |  |--But ignore 5 and 6 regarding campfires and wildlife.
+  |  |--Also ignore #3 regarding human waste disposal. Do NOT dig any pits.
+  |
+  |--Read and agree to the 10 Commandments of Computer Ethics
+     |--https://en.wikipedia.org/wiki/Ten_Commandments_of_Computer_Ethics
+     |--Source File: http://www.computerethicsinstitute.org/images/TheTenCommandmentsOfComputerEthics.pdf
+     |--Thou shalt not use a computer to harm other people.
+     |--Thou shalt not interfere with other people's computer work.
+     |--Thou shalt not snoop around in other people's computer files.
+     |--Thou shalt not use a computer to steal.
+     |--Thou shalt not use a computer to bear false witness.
+     |--Thou shalt not copy or use proprietary software for which you have not paid (without permission).
+     |--Thou shalt not use other people's computer resources without authorization or proper compensation.
+     |--Thou shalt not appropriate other people's intellectual output.
+     |--Thou shalt think about the social consequences of the program you are writing or the system you are designing.
+     |--Thou shalt always use a computer in ways that ensure consideration and respect for your fellow humans.
