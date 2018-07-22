@@ -52,3 +52,13 @@ Minutes (summary):
     - Increment and decrement the tracking pointers depending on which stack is being pushed/popped
 
 2:21 - ThreeInOne() -
+
+2:45 - SetOfStacks() - 
+  - Use non-adjacent stacks
+  - Single stack pointer (represents size of stack)
+  - Stacks are pointed to in the array
+  - O(N) space complexity where N is the number of elements (this is amortized)
+    - O(W * H) space complexity if by dimensions
+    - 
+
+3:00 - GitPages
