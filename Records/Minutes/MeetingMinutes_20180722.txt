@@ -1,0 +1,32 @@
+Start time:
+12:00 PM
+
+End time:
+-:00 PM
+
+Attendees:
+
+Costs:
+~$1.50 for waffle mix, oil, eggs
+~$4.00 for whipped cream
+~$3.75 for frozen berries
+
+Agenda:
+Waffles && Code card review
+Chapter 2 and 3 (linked lists and queues) of Cracking the Coding Interview
+Prospective employee interview questions
+CAD drafting for CNC fabrication
+GitPages
+
+Topics:
+Linked Lists
+Queues
+
+Problems:
+2.6 - Palindrome() - Implement a function to check if a linked list is a palindrome
+2.7 - Intersection() - Given two singly linked lists, determine if the two lists intersect. Return the intersecting node. Note that the intersection is defined based on reference, not value. That is, if the kth node of the first linked list is the exact same node (by reference) as the jth node of the second linked list, then they are intersecting.
+3.1 - ThreeInOne() - Describe how you could use a single array to implement three stacks.
+3.3 - StackOfPlates() - Imagine a literal stack of plate; if the stack gets too high, it might topple. Therefore, in real life, we would likely start a new stack when the previous stack exceeds some threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks should be composed of several stacks and should create a new stack once the previous one exceeds capacity. SetOfStacks.push() and SetOfStacks.pop() should behave identically to a single stack (that is, pop() should return the same values as it would if there were just a single stack).
+3.3 - Follow up - Implement a function popAt(int index) which performs a pop operation on a specific sub-stack.
+
+Minutes (summary):
