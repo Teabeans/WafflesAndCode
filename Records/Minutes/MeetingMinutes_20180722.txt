@@ -30,3 +30,25 @@ Problems:
 3.3 - Follow up - Implement a function popAt(int index) which performs a pop operation on a specific sub-stack.
 
 Minutes (summary):
+1:15 - Waffles! And card review
+1:30 - Eating...
+1:35 - Palindrome()
+  - Recursive solution - Use a call stack that progressively advances one node forward and trims the last node off the list
+    - Time complexity is a sequence summation
+  - Stack/array solution - Traverse to push everything into a stack or array, then just march along comparing
+
+2:15 - Intersection()
+  - Find length of lists
+  - Check last node for intersection
+  - Find delta between lengths
+  - Move to delta from front (position in two lists is aligned)
+  - Advance forward node by node from that point looking for intersections
+  
+2:30 - ThreeInOne()
+  - Stack 0 are all %3 == 0 index positions
+  - Stack 1 are all %3 == 1 index positions
+  - Stack 2 are all %3 == 2 index positions
+  - Track top of stack 1, 2, and 3
+    - Increment and decrement the tracking pointers depending on which stack is being pushed/popped
+
+2:21 - ThreeInOne() -
