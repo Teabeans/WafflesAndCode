@@ -1,22 +1,41 @@
 <HOURS AND COMMUTE>
-Where is the role located? Is this likely to change?
+Where is the role located? Is this likely to change with some frequency?
 Does this role support remote work?
 What hours are employees in this role expected to be in the office?
-Do employees in this role have commitments outside of core hours?
+Do employees in this role have commitments outside of core hours (ie. on-call duties)?
 Does the company provide support for commuting such as bus passes or shuttles?
 Is parking available?
 Are showers available?
 
 <JOB DETAILS>
-What skills are you looking for?
-Are there any specific technologies and platforms that an employee will require on day one?
-When do you anticipate a position to begin? What does your timetable look like?
+In the immediate future, what skills or technologies would you recommend that a prospective new hire spend time reviewing to be an immediate contributor?
+Can you describe the day-to-day responsibilities of this position?
+Can you describe the advancement expectations of this role?
+When would you ideally like this position to begin?
 Do you mind if I refer this position to my contact network?
-What range of salaries can I expect this position to pay?
-What opportunities for expansion and movement are available, both laterally and vertically?
-Does your company support continuing education?
+Are opportunities for lateral or vertical movement available from this position?
+Does this position interact directly with clients or customers?
 
-<PAY AND BENEFITS>
+<INTERVIEW PROCESS>
+Are there any additional materials you would like me to provide?
+What can I do to demonstrate that I am the best candidate for this position?
+What are the next steps I should expect?
+Is it okay for me to follow up on this interview and, if so, what would be an appropriate window to wait?
+
+<PAY AND BENEFITS> (Note: Reserve for negotiation phase)
+Paid Time Off (PTO) and sick leave?
+Vacation?
+ - Mandatory?
+ - Stipulations on how or when vacation is used?
+ - Does company culture discourage use?
+Does your company support continuing education?
+Tuition offsets or continuing education?
+Conventions and conferences?
+
+<CULTURE>
+
 
 <EXTRA>
+Extracurricular groups or clubs?
+What charitable work does the company engage in or support?
 
