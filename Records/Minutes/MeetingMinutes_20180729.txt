@@ -1,0 +1,42 @@
+Start time:
+12:00 PM
+
+End time:
+3:30 PM
+
+Attendees:
+(6)
+
+Costs:
+~$1.50 for waffle mix, oil, eggs
+
+Donations:
+Tim - Mixing bowl, whisk, measuring cup
+Luther - $8.00, whiteboard marker pack
+Chaeng - Syrup bottle
+
+Agenda:
+Waffles && Code card review
+Chapter 2 and 3 (linked lists and queues) of Cracking the Coding Interview
+Prospective employee interview questions
+CAD drafting for CNC fabrication
+GitPages
+
+Topics:
+Testing
+
+Problems:
+Ch. 4 - Successor()
+Ch. 6 - TheApocalypse()
+Ch. 8 - TripleStep()
+
+Minutes (summary):
+12:00 - Waffle cooking
+12:30 - PalindromePermutation
+1:00 - Waffles! And card review
+
+1:35-3:30 - Successor, TheApocalypse(), TripleStep()
+
+3:30 - GitPages
+
+3:30 - Headshots delayed until next week
