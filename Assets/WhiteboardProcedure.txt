@@ -12,6 +12,9 @@ Generic Whiteboard Procedure
 5) For recursive problems/solutions, postulate simplified recursion (ie. 7-queens reduced to 7-pawns)
 
 6) Postulate naive or brute force solution
+  - Clearly state that this is the naive solution
+  - Note limitations in time
+  - Note limitations in memory
 
 7) If possible, postulate what the theoretical best-case time complexity might be
   - Is it possible to solve without examining every element? (Sub O(N) time)
@@ -21,6 +24,23 @@ Generic Whiteboard Procedure
 
 8) Begin identifying optimizations
 
-9) 
+9) If a solution close to best-case time complexity has been arrived at, proceed to pseudocode
 
+10) OR attempt to improve memory space complexity before proceeding
 
+11) Draft pseudocode (series of plain English statements)
+  - Can be converted to method calls
+  - ie.
+    PSEUDOCODE                  METHOD CALLS
+    Sort all elements           sort()
+    Scan for largest element    scan()
+    Do other things             doThings()
+
+12) Run some data through the pseudocode to validate the test cases
+
+13) Start writing code logic
+  - If the pseudologic is broken into method calls, populate calls with code
+
+14) Validate
+  - Test algorithm with data
+  - Run corner cases
