@@ -1,0 +1,26 @@
+Generic Whiteboard Procedure
+2018.08.04
+
+1) Clarify the problem
+
+2) Define problem boundaries
+
+3) Establish test and corner cases
+
+4) For recursive problems/solutions, establish base case
+
+5) For recursive problems/solutions, postulate simplified recursion (ie. 7-queens reduced to 7-pawns)
+
+6) Postulate naive or brute force solution
+
+7) If possible, postulate what the theoretical best-case time complexity might be
+  - Is it possible to solve without examining every element? (Sub O(N) time)
+  - Is a sorting action necessary? (Not better than O(N(logN))
+  - Can a divide-and-conquer methodology work? (O(logN)
+  - Is a direct equation a possible solution? (O(1))
+
+8) Begin identifying optimizations
+
+9) 
+
+
