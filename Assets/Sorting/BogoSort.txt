@@ -1,1 +1,81 @@
---- Placeholder document ---
+//-----------------------------------------------------------------------------|
+// Authorship
+//-----------------------------------------------------------------------------|
+//
+// Tim Lum
+// twhlum@gmail.com
+// Created:  2018.08.05
+// Modified: 2018.08.05
+//
+
+
+
+//-----------------------------------------------------------------------------|
+// DESCRIPTION:
+//-----------------------------------------------------------------------------|
+
+Bogosort consists of repeatedly shuffling a set of elements at random, then
+checking to see if the elements are fully sorted. If they are not, the elements
+are shuffled again. This process is repeated until the elements are sorted.
+
+This is analagous to tossing a deck of cards in the air, picking them up, then
+flipping through the deck to verify that they're in order.
+
+The odds of this particular analogy may be expressed as:
+1 unique element has 1 ordering (1)
+2 unique elements have 2 orderings (2*1)
+3 unique elements have 6 orderings (3*2*1)
+...
+52 unique elements have 52! orderings
+
+And since there is only one correct sequence, the odds of hitting that are:
+1/52!
+
+Bogosort has the peculiar distinction of being one of the few sort methods
+theoretically capable of sorting any input in O(1) in the best case, though
+this is of course rarely of any practical impact.
+
+
+
+//-----------------------------------------------------------------------------|
+// TIME COMPLEXITY:
+//-----------------------------------------------------------------------------|
+
+O(N!) - For every additional element, the odds of landing on a sorted
+combination reduce by a factor of N (assuming no repeat elements).
+
+
+
+//-----------------------------------------------------------------------------|
+// Optimizations:
+//-----------------------------------------------------------------------------|
+
+Checking to see if the input is sorted before shuffling will prevent shuffling
+  of pre-sorted inputs.
+On every sort-check pass, a lowest and highest value may be observed. Bogosort
+  shall proceed until either the lowest or highest value are observed at the
+  start or end of the element set, respectively. Since those elements are sorted
+  they may be omitted from future bogosorts, allowing the bogosort to operate on
+  progressively smaller data sets as the sorted tail and head grow.
+
+
+
+//-----------------------------------------------------------------------------|
+// PSEUDOCODE:
+//-----------------------------------------------------------------------------|
+While the elements are unsorted
+  Check to see if the elements are in a sorted order
+  If the elements are not sorted
+    Shuffle
+
+
+
+//-----------------------------------------------------------------------------|
+// CODE (C++):
+//-----------------------------------------------------------------------------|
+void bogoSort( int[ ] anArray ) {
+   bool isSorted = false;
+   while (isSorted == false) {
+      
+   }
+}
