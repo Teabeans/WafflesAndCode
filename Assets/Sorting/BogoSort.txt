@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------|
-// Authorship
+// AUTHORSHIP
 //-----------------------------------------------------------------------------|
 //
 // Tim Lum
@@ -47,7 +47,7 @@ combination reduce by a factor of N (assuming no repeat elements).
 
 
 //-----------------------------------------------------------------------------|
-// Optimizations:
+// OPTIMIZATIONS:
 //-----------------------------------------------------------------------------|
 
 Checking to see if the input is sorted before shuffling will prevent shuffling
