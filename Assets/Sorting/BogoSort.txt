@@ -33,7 +33,7 @@ And since there is only one correct sequence, the odds of hitting that are:
 
 Bogosort has the peculiar distinction of being one of the few sort methods
 theoretically capable of sorting any input in O(1) in the best case, though
-this is of course rarely of any practical impact.
+this is of course more a curiosity than a practical consideration.
 
 
 
@@ -73,9 +73,65 @@ While the elements are unsorted
 //-----------------------------------------------------------------------------|
 // CODE (C++):
 //-----------------------------------------------------------------------------|
-void bogoSort( int[ ] anArray ) {
-   bool isSorted = false;
+
+#include <stdlib.h> // For rand() - random number generation
+
+// (+) --------------------------------|
+// #bogoSort(int[ ], int)
+// ------------------------------------|
+// Desc:    Sorts an array by shuffling the elements repeatedly
+// Params:  int[] arg1 - The array to sort
+//          int - The length of the array
+// PreCons: None
+// PosCons: None
+// RetVal:  None - The array is sorted in situ
+void bogoSort( int[ ] anArray, int length ) {
+   bool isSorted = checkIsSorted( anArray, length );
    while (isSorted == false) {
-      
+      // Shuffle the array if necessary
+      if ( isSorted == false ) {
+         shuffle( anArray, length );
+      }
+      // Check if the array is sorted
+      isSorted = checkIsSorted( anArray );
+   } // Closing while - Elements are sorted
+}
+
+// (+) --------------------------------|
+// #checkIsSorted( int[ ], int )
+// ------------------------------------|
+// Desc:    Sorts an array by shuffling the elements repeatedly
+// Params:  int[] arg1 - The array to check
+//          int arg2 - The length of the array
+// PreCons: None
+// PosCons: None
+// RetVal:  bool True - The array is sorted
+//          bool False - The array is not sorted
+bool checkIsSorted( int[ ] anArray, int length ) {
+   for ( int i = 0 ; i < ( length - 1 ) ; i++ ) {
+      if ( anArray[ i ] > anArray[ i + 1 ] ) {
+         return ( false );
+      }
+   }
+   return ( true );
+}
+
+// (+) --------------------------------|
+// #shuffle( int[ ], int )
+// ------------------------------------|
+// Desc:    Shuffles the elements of an array
+// Params:  int[] arg1 - The array to shuffle
+//          int arg2 - The length of the array
+// PreCons: None
+// PosCons: The array has been shuffled
+// RetVal:  None - The array is shuffled in situ
+void shuffle( int[] tgtArray, int length ) {
+   int swapTo;
+   int temp;
+   for ( int i = 0 ; i < length ; i++ ) {
+      swapTo = rand() % length;
+      temp = tgtArray[swapTo];
+      tgtArray[swapTo] = tgtArray[i];
+      tgtArray[i] = temp;
    }
 }
