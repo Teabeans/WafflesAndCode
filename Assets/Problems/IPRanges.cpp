@@ -116,10 +116,12 @@ int IP_COUNT = 100;
 //       HELPER METHODS (DECLARATIONS)
 //
 //-------|---------|---------|---------|---------|---------|---------|---------|
+std::vector<int> findClosest( std::string tgtIP, std::vector<std::vector<int>> rangeTable );
 bool             isGreaterThan( const std::vector<int>& vec1, const std::vector<int>& vec2);
 std::string      intToIP( int IPval );
 unsigned int     IPtoInt( std::string IPaddy );
 std::vector<int> IPtoRange( std::string IPRange );
+void             isInAnyRange( std::vector<std::string> IPtable, std::vector<std::vector<int>> rangeTable, std::vector<bool> &truthTable );
 bool             isInRange( std::string IPaddy, std::string range );
 int              isValid( std::string IPaddy );
 unsigned int     parseLow( std::string IPRange );
@@ -130,7 +132,7 @@ void             reportAddyTable( std::vector<std::string> table );
 void             reportRangeTable( std::vector<std::string> table );
 void             reportRangeTableInt( std::vector<std::vector<int>> table );
 void             reportTruthTable( std::vector<bool> table );
-void             sortIPRanges( std::vector<std::vector<int>> table);
+void             sortIPRanges( std::vector<std::vector<int>> &table);
 void             testAlert( std::string title );
 
 
@@ -194,6 +196,12 @@ int main( int argc, char *argv[] ) {
    sortIPRanges( rangeTableInts );
    reportRangeTableInt( rangeTableInts );
 
+   testAlert("05 - Compare all ranges");
+   isInAnyRange( addyTable, rangeTableInts, truthTable );
+   std::cout << std::endl;
+   std::cout << "Truth table state:" << std::endl;
+   reportTruthTable( truthTable );
+
    return( 0 );
 } // Closing main( )
 
@@ -207,7 +215,7 @@ int main( int argc, char *argv[] ) {
 
 
 bool isGreaterThan( const std::vector<int>& vec1, const std::vector<int>& vec2) {
-   return( vec1.at(0) > vec2.at(0) );
+   return( vec1[0] < vec2[0] );
 }
 
 // Desc: Converts an IP address to its integer equivalent
@@ -254,14 +262,37 @@ bool isInRange( std::string IPaddy, std::string range ) {
 } // Closing isInRange( )
 
 // Returns if the address is within range
-bool isInAnyRange( std::string IPaddy, std::vector<std::string> ranges ) {
+bool isInRangeInt( std::string IPaddy, std::vector<int> range ) {
+   unsigned int hi = range[1];
+   unsigned int lo = range[0];
    unsigned int addy = IPtoInt( IPaddy );
-   bool retBool = false;
-
-   // TODO
-
-   return( retBool);
+   // Perform the in-range evaluation
+   bool didHit = ( (hi >= addy) && (addy >= lo) );
+   if (didHit) {
+      std::cout << std::left << std::setw(16) << IPaddy << "is in range " << std::setw(16) << std::left << intToIP( lo ) << "- " << intToIP( hi ) << std::endl;
+   }
+   return( didHit );
 } // Closing isInRange( )
+
+// Records which addresses are within any range
+void isInAnyRange( std::vector<std::string> IPtable, std::vector<std::vector<int>> rangeTable, std::vector<bool> &truthTable ) {
+   for( int i = 0 ; i < IP_COUNT ; i++ ) {
+      std::vector<int> compareRange = findClosest( IPtable[i], rangeTable );
+      truthTable[i] = isInRangeInt( IPtable[i], compareRange );
+   }
+} // Closing isInAnyRange( )
+
+// Finds the closest range such that the range low bound is less than or equal to the target IP
+std::vector<int> findClosest( std::string tgtIP, std::vector<std::vector<int>> rangeTable ) {
+   int addy = IPtoInt( tgtIP );
+   // Binary search
+   int curr = rangeTable.size( ) - 1; // Be sure to subtract 1, otherwise segfault
+   while( (rangeTable[curr][0] > addy) && (curr > 0) ) {
+      curr--;
+   }
+   return( rangeTable[curr] );
+   // TODO: Swap with binary search at some point
+}
 
 
 // Desc: Isolates the low value of a given range
@@ -377,8 +408,17 @@ void reportRangeTableInt( std::vector<std::vector<int>> table ) {
    }
 } // Closing reportRangeTable( vector<string> )
 
+void reportTruthTable( std::vector<bool> table ) {
+   for( int i = 0 ; i < IP_COUNT ; i++ ) {
+      std::cout << table[i] << " ";
+      if( i % 10 == 9 ) {
+         std::cout << std::endl;
+      }
+   }
+}
+
 // Desc: Sorts a table of vector ranges
-void sortIPRanges( std::vector<std::vector<int>> table ) {
+void sortIPRanges( std::vector<std::vector<int>> &table ) {
    std::sort ( table.begin( ), table.end( ), isGreaterThan );
 } // Closing sortIPRanges( vector<vector<int>> )
 
