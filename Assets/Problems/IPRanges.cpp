@@ -110,15 +110,20 @@ int IP_COUNT = 100;
 // For sort()
 #include <algorithm>
 
+// For bitshifting
+#include <bitset>
 
 //-------|---------|---------|---------|---------|---------|---------|---------|
 //
 //       HELPER METHODS (DECLARATIONS)
 //
 //-------|---------|---------|---------|---------|---------|---------|---------|
+
+unsigned int     CIDRLoInt( std::string CIDRRange );
+unsigned int     CIDRHiInt( std::string CIDRRange );
 std::vector<int> findClosest( std::string tgtIP, std::vector<std::vector<int>> rangeTable );
 bool             isGreaterThan( const std::vector<int>& vec1, const std::vector<int>& vec2);
-std::string      intToIP( int IPval );
+std::string      intToIP( unsigned int IPval );
 unsigned int     IPtoInt( std::string IPaddy );
 std::vector<int> IPtoRange( std::string IPRange );
 void             isInAnyRange( std::vector<std::string> IPtable, std::vector<std::vector<int>> rangeTable, std::vector<bool> &truthTable );
@@ -176,7 +181,13 @@ int main( int argc, char *argv[] ) {
    reportRangeTable( rangeTable );
    std::cout << std::endl;
 
-   testAlert("02 - Convert all ranges to integers");
+   testAlert("02 - Convert CIDR range to int ranges");
+   std::string CIDRRange = "123.123.123.123/27";
+   unsigned int CIDRLo = CIDRLoInt( CIDRRange );
+   unsigned int CIDRHi = CIDRHiInt( CIDRRange );
+   std::cout << CIDRLo << " - " << CIDRHi << std::endl;
+
+   testAlert("03 - Convert all ranges to integers");
    std::vector<std::vector<int>> rangeTableInts;
    for( int i = 0 ; i < RANGE_COUNT ; i++ ) {
       std::vector<int> pair;
@@ -186,17 +197,17 @@ int main( int argc, char *argv[] ) {
    }
    reportRangeTableInt( rangeTableInts );
 
-   testAlert("03 - Validate if an address is within range");
+   testAlert("04 - Validate if an address is within range");
    std::string testIP = "127.0.0.1";
    std::cout << "In range 83.159.127.18-85.139.4.48   : " << isInRange( "127.0.0.1", "83.159.127.18-85.139.4.48") << std::endl;
    std::cout << "In range 106.55.40.138-108.34.173.168: " << isInRange( "127.0.0.1", "106.55.40.138-108.34.173.168") << std::endl;
    std::cout << "In range 126.2.2.1-128.4.17.18       : " << isInRange( "127.0.0.1", "126.2.2.1-128.4.17.18") << std::endl;
 
-   testAlert("04 - Sort the ranges");
+   testAlert("05 - Sort the ranges");
    sortIPRanges( rangeTableInts );
    reportRangeTableInt( rangeTableInts );
 
-   testAlert("05 - Compare all ranges");
+   testAlert("06 - Compare all ranges");
    isInAnyRange( addyTable, rangeTableInts, truthTable );
    std::cout << std::endl;
    std::cout << "Truth table state:" << std::endl;
@@ -213,13 +224,60 @@ int main( int argc, char *argv[] ) {
 //
 //-------|---------|---------|---------|---------|---------|---------|---------|
 
+unsigned int CIDRLoInt( std::string CIDRRange ) {
+   std::cout << "CIDRLo() called: " << CIDRRange << std::endl;
+   unsigned int IPAsInt = IPtoInt( CIDRRange );
+   std::bitset<32> IPBinary(IPAsInt);
+   std::cout << "IPBinary: " << IPBinary << std::endl;
+   unsigned int hostID = 0;
+   std::stringstream parser( CIDRRange );
+   char wasteChar;
+   for( int i = 0 ; i < 5 ; i++ ) {
+      parser >> hostID;
+      parser >> wasteChar;
+   }
+   // hostID == 25
+   hostID = 32 - hostID;
+   // hostID == 7
+   std::cout << "hostID: " << hostID << std::endl;
+   IPBinary >>= hostID;
+   IPBinary <<= hostID;
+   std::cout << "IP Low: " << IPBinary << std::endl;
+   std::cout << "               .       .       ." << std::endl;
+   return( IPBinary.to_ulong( ) );
+}
 
-bool isGreaterThan( const std::vector<int>& vec1, const std::vector<int>& vec2) {
-   return( vec1[0] < vec2[0] );
+unsigned int CIDRHiInt( std::string CIDRRange ) {
+   std::cout << "CIDRHi() called: " << CIDRRange << std::endl;
+   unsigned int IPAsInt = IPtoInt( CIDRRange );
+   std::bitset<32> IPBinary(IPAsInt);
+   std::cout << "IPBinary: " << IPBinary << std::endl;
+   unsigned int hostID = 0;
+   std::stringstream parser( CIDRRange );
+   char wasteChar;
+   for( int i = 0 ; i < 5 ; i++ ) {
+      parser >> hostID;
+      parser >> wasteChar;
+   }
+   // hostID == 25
+   hostID = 32 - hostID;
+   // hostID == 7
+   std::cout << "hostID: " << hostID << std::endl;
+   // Shift right, then left to clear the hostID bits
+   IPBinary >>= hostID;
+   for( int i = 0 ; i < hostID ; i++ ) {
+      IPBinary <<= 1; // TODO: Find arithmetic left shift?
+      IPBinary.set( 0, 1 );
+   }
+
+   std::cout << "IP High: " << IPBinary << std::endl;
+   unsigned int retInt = IPBinary.to_ulong( );
+   std::cout << "Returning( " << retInt << " : " << intToIP(retInt) << " )" << std::endl;
+   return( retInt );
 }
 
 // Desc: Converts an IP address to its integer equivalent
-unsigned int IPtoInt( std::string addy ) {
+unsigned int CIDRtoInt( std::string addy ) {
    std::stringstream parser( addy );
    unsigned int retInt = 0;
    for( int i = 3 ; i >= 0 ; i-- ) {
@@ -230,8 +288,12 @@ unsigned int IPtoInt( std::string addy ) {
    return( retInt );
 } // Closing IPtoInt( )
 
+bool isGreaterThan( const std::vector<int>& vec1, const std::vector<int>& vec2) {
+   return( vec1[0] < vec2[0] );
+}
+
 // Desc: Converts an integer to its IP equivalent
-std::string intToIP( int addy ) {
+std::string intToIP( unsigned int addy ) {
    int octets[4];
 
    // Capture the octets from least to greatest
@@ -251,6 +313,20 @@ std::string intToIP( int addy ) {
    std::string retIP = concat.str( );
    return( retIP );
 } // Closing intToIP( )
+
+// Desc: Converts an IP address to its integer equivalent
+unsigned int IPtoInt( std::string addy ) {
+   std::stringstream parser( addy );
+   unsigned int retInt = 0;
+   for( int i = 3 ; i >= 0 ; i-- ) {
+      int temp;
+      char waste;
+      parser >> temp;
+      parser >> waste;
+      retInt += temp * ( std::pow( 2., ( 8 * i ) ) );
+   }
+   return( retInt );
+} // Closing IPtoInt( )
 
 // Returns if the address is within range
 bool isInRange( std::string IPaddy, std::string range ) {
